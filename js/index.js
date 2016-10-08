@@ -10,10 +10,8 @@ $(function(){
     $(window).on('scroll',function(){
         var stop=$(window).scrollTop();
         if(stop>=h){
-            // nav.offset({top:stop});
             nav.addClass('active')
         }else{
-            // nav.offset({top:h});
             nav.removeClass('active')
         }
     })
@@ -23,6 +21,7 @@ $(function(){
     var link=$('.nav ul li')
     $(window).on('resize',function(){
         $(window).scroll();
+        console.log($(window).width())
     })
 
     $(window).on('scroll',function(){
@@ -50,7 +49,7 @@ $(function(){
     $('.btn-open a').on('click',function(){
      $('.contain-box').toggleClass('active')
     })
-
+    //技能
     function num(i,podeg){
         var canvas1 =$('.canvas').get(i);
         var ctx = canvas1.getContext("2d");
@@ -99,10 +98,10 @@ $(function(){
     num(5,324);
     num(6,288);
     num(7,324);
+
+    // 泡泡
     (function() {
-
         var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
-
         // Main
         initHeader();
         addListeners();
@@ -112,11 +111,9 @@ $(function(){
             height = window.innerHeight;
             target = {x: 0, y: height};
             canvas = document.getElementById('demo-canvas');
-
             canvas.width = width;
             canvas.height = height;
             ctx = canvas.getContext('2d');
-
             // create particles
             circles = [];
             for(var x = 0; x < width*0.5; x++) {
@@ -125,7 +122,6 @@ $(function(){
             }
             animate();
         }
-
         // Event handling
         function addListeners() {
             window.addEventListener('scroll', scrollCheck);
