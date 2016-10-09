@@ -32,8 +32,8 @@ $(function(){
         var stop=$(window).scrollTop();
         $(arr).each(function(i,v){
             if(stop>=v-155){
-             link.find('a').css({color:""})
-             link.eq(i).find('a').css({color:"#fff"})
+             link.find('a').css({background:""})
+             link.eq(i).find('a').css({ background: 'rgb(57, 208, 211)'})
              floor.eq(i).addClass('active')
             }
 
@@ -61,19 +61,19 @@ $(function(){
         function init(){
             ctx.clearRect(0,0,W,H);
             ctx.beginPath();
-            ctx.strokeStyle="#fff";
+            ctx.strokeStyle="transparent";
             ctx.lineWidth=10;
             ctx.arc(W/2,H/2,65,0,Math.PI*2,false);
             ctx.stroke();
 
             var r = deg*Math.PI/180;
             ctx.beginPath();
-            ctx.strokeStyle = " #a1d608";
+            ctx.strokeStyle = " #fff";
             ctx.lineWidth=10;
             ctx.arc(W/2,H/2,65,0-90*Math.PI/180,r-90*Math.PI/180,false);
             ctx.stroke();
 
-            ctx.fillStyle=" #a1d608";
+            ctx.fillStyle=" #fff";
             ctx.font="25px  'Raleway'";
             text = Math.floor(deg/360*100)+"%";
             text_w = ctx.measureText(text).width;
@@ -91,7 +91,7 @@ $(function(){
         draw(podeg);
     }
     num(0,342);
-    num(1,200);
+    num(1,330);
     num(2,324);
     num(3,324);
     num(4,324);
@@ -100,15 +100,16 @@ $(function(){
     num(7,324);
 
     // 泡泡
+    // $(window).on('resize',function(){
+    //     width = window.innerWidth;
+    //     height = window.innerHeight;
+    // })
     (function() {
         var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
         // Main
         initHeader();
         addListeners();
-
         function initHeader() {
-            width = window.innerWidth;
-            height = window.innerHeight;
             target = {x: 0, y: height};
             canvas = document.getElementById('demo-canvas');
             canvas.width = width;
