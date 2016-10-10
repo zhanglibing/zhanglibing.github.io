@@ -1,4 +1,5 @@
 @import "minxins";
+@import "css/animate";
 *{
   box-sizing: border-box;
   list-style: none;
@@ -52,13 +53,18 @@ a{
     }
   }
 }
-#demo-canvas{
-  position: relative;
+@include onS{
+  @for $i from 1 through 12{
+    .x-#{$i}{
+      width:percentage($i/12);
+    }
+  }
 }
-.canvas{
+#demo-canvas{
   position: relative;
   z-index: 10;
 }
+
 //header开始
 .header-box{
   width:100%;
@@ -133,9 +139,7 @@ a{
   z-index:20000;
   width:100%;
   height:auto;
-  //background: #a1d608;
   background-color: rgba(144, 146, 153, 0.94);
-  //padding: 10px 0px;
   border-top: 0px solid #FFFFFF;
   box-shadow: 1px 1px 4px rgba(60, 60, 60, 0.44);
   text-align: center;
@@ -151,7 +155,6 @@ a{
     height:auto;
     width:100%;
     margin:0 auto;
-
     .nav-bar{
       display: none;
     }
@@ -176,7 +179,7 @@ a{
           transition: all 0.2s ease-in-out;
           -moz-transition: all 0.2s ease-in-out;
           -webkit-transition: all 0.2s ease-in-out;
-          padding: 16px 0;
+          padding: 16px 15px;
           &:hover{
             //color: #fff;
             background-color: rgba(0, 255, 255, 0.58);
@@ -228,7 +231,7 @@ a{
       margin:0;
       a{
         font-size: 16px;
-        //padding: 10px 11px;
+        padding:15px 0;
       }
     }
 
@@ -429,7 +432,7 @@ a{
       padding-top:60px;
       text-transform: uppercase;
       opacity: 0;
-      transform: translate3d(0,-300px,0);
+      transform: translate3d(0,50px,0);
     }
     h6{
       font-size: 16px;
@@ -439,7 +442,7 @@ a{
       text-align: center;
       margin: 0 0 60px 0;
       opacity: 0;
-      transform: translate3d(0,-600px,0);
+      transform: translate3d(0,50px,0);
     }
   }
   &.active .about-us{
@@ -449,7 +452,7 @@ a{
       transform: translate3d(0,0,0);
     }
     h6{
-      transition:all 1s ease;
+      transition:all 0.8s ease;
       opacity: 1;
       transform: translate3d(0,0,0);
     }
@@ -473,6 +476,8 @@ a{
       margin: 0 0 25px 0;
       text-align: center;
       text-transform: uppercase;
+      opacity: 0;
+      transform: translate3d(0,50px,0);
     }
     h6{
       font-size: 16px;
@@ -481,6 +486,8 @@ a{
       font-weight: 400;
       text-align: center;
       margin: 0 0 60px 0;
+      opacity: 0;
+      transform: translate3d(0,50px,0);
     }
     .row{
       margin-right: -15px;
@@ -495,8 +502,10 @@ a{
           .canvas{
             @include juzhong;
             margin:0 auto;
+
             transition: transform 0.8s ease;
             transform: scale(0,0);
+
           }
           span{
             background: rgb(161, 214, 8);
@@ -543,6 +552,18 @@ a{
       transform: scale(1,1);
     }
   }
+  &.active .contain{
+    h2{
+      transition:all 0.8s ease;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+    h6{
+      transition:all 0.8s ease;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+  }
 }
 
 .works{
@@ -569,6 +590,8 @@ a{
       margin: 0 0 15px;
       text-align: center;
       text-transform: uppercase;
+      opacity: 0;
+      transform: translate3d(0,50px,0);
     }
     h6{
       font-size: 16px;
@@ -577,6 +600,8 @@ a{
       font-weight: 400;
       text-align: center;
       margin: 0 0 60px 0;
+      opacity: 0;
+      transform: translate3d(0,50px,0);
     }
     .row{
       width:100%;
@@ -584,7 +609,10 @@ a{
       transition: transform 0.8s ease;
       .col{
         height:240px;
-        padding:10px;
+        padding:10px 10px;
+        @include ons{
+          padding:10px 0;
+        }
         .kapian{
           width:100%;
           height:100%;
@@ -700,18 +728,29 @@ a{
 
     }
   }
-
+  &.active .contain{
+    h2{
+      transition:all 0.8s ease;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+    h6{
+      transition:all 0.8s ease;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+  }
 }
 .n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8,.n9{
-  transform: translate3d(0,500px,0);
+  transform: translate3d(500px,500px,0) scale(1.5,1.5);
   opacity: 0;
 }
 
 .works.active {
   @for $i from 1 through 9 {
     .n#{$i} {
-      transition: transform $i*0.2s ease, opacity $i*0.2s ease;
-      transform: translate3d(0, 0, 0);
+      transition: transform $i*0.2s ease $i*0.1s, opacity $i*0.2s ease $i*0.1s;
+      transform: translate3d(0, 0, 0) scale(1,1);
       opacity: 1;
     }
   }
@@ -738,8 +777,8 @@ a{
       margin: 0 0 15px;
       text-align: center;
       text-transform: uppercase;
-      transition: transform 0.8s ease;
-      transform: translate3d(0, -100px, 0);
+      opacity: 0;
+      transform: translate3d(0,50px,0);
     }
     h6 {
       font-size: 26px;
@@ -748,8 +787,8 @@ a{
       font-weight: 400;
       text-align: center;
       margin: 0 0 60px 0;
-      transition: transform 0.8s ease;
-      transform: translate3d(0, -150px, 0);
+      opacity: 0;
+      transform: translate3d(0,50px,0);
     }
     .row {
       padding-bottom: 100px;
@@ -864,6 +903,18 @@ a{
       transform: translate3d(0, 0, 0);
     }
 
+  }
+  &.active .contain{
+    h2{
+      transition:all 0.8s ease;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+    h6{
+      transition:all 0.8s ease;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
   }
 }
 

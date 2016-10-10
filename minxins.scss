@@ -21,7 +21,7 @@ $s-size:768px;
     @content;
   }
 }
-$S-size:768px;
+$S-size:476px;
 @mixin onS{
   @media screen and(max-width:$S-size) {
     @content;
