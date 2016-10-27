@@ -3555,10 +3555,6 @@ a {
   font-size: 14px;
 }
 
-.aboutUs .about-us .contain-box .contain-photo .date p a {
-  color: #fff;
-}
-
 .aboutUs .about-us .contain-box .contain-photo:hover .date {
   bottom: 0;
 }
@@ -3900,7 +3896,7 @@ a {
   transition: all 0.2s ease;
 }
 
-.works .contain .links li.active {
+.works .contain .links li:hover {
   border: solid 1px #15596e;
   color: #fff;
   background: #39d0d3;
@@ -3913,18 +3909,12 @@ a {
 }
 
 .works .contain .row .col {
-  height: 0;
-  overflow: hidden;
-}
-
-.works .contain .row .col.active {
-  display: block;
   height: 240px;
-  padding: 10px;
+  padding: 10px 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .works .contain .row .col .active {
+  .works .contain .row .col {
     padding: 10px 0;
   }
 }
@@ -4041,22 +4031,6 @@ a {
   background-image: url("images/waiting.jpg");
 }
 
-.works .contain .row .col .lianxiren {
-  background-image: url("images/tongxunlu.jpg");
-}
-
-.works .contain .row .col .xiangce {
-  background-image: url("images/xiangce.jpg");
-}
-
-.works .contain .row .col .todo {
-  background-image: url("images/todo.jpg");
-}
-
-.works .contain .row .col .icloud {
-  background-image: url("images/icloud.jpg");
-}
-
 @media screen and (max-width: 1200px) {
   .works .contain {
     width: 100%;
@@ -4092,7 +4066,7 @@ a {
   transform: translate3d(0, 0, 0);
 }
 
-.n1, .n2, .n3, .n4, .n5, .n6, .n7, .n8, .n9, .n10, .n11, .n12 {
+.n1, .n2, .n3, .n4, .n5, .n6, .n7, .n8, .n9 {
   transform: translate3d(500px, 500px, 0) scale(1.5, 1.5);
   opacity: 0;
 }
@@ -4147,24 +4121,6 @@ a {
 
 .works.active .n9 {
   transition: transform 1.8s ease 0.9s, opacity 1.8s ease 0.9s;
-  transform: translate3d(0, 0, 0) scale(1, 1);
-  opacity: 1;
-}
-
-.works.active .n10 {
-  transition: transform 2s ease 1s, opacity 2s ease 1s;
-  transform: translate3d(0, 0, 0) scale(1, 1);
-  opacity: 1;
-}
-
-.works.active .n11 {
-  transition: transform 2.2s ease 1.1s, opacity 2.2s ease 1.1s;
-  transform: translate3d(0, 0, 0) scale(1, 1);
-  opacity: 1;
-}
-
-.works.active .n12 {
-  transition: transform 2.4s ease 1.2s, opacity 2.4s ease 1.2s;
   transform: translate3d(0, 0, 0) scale(1, 1);
   opacity: 1;
 }

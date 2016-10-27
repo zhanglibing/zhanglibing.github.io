@@ -1,5 +1,6 @@
 $(function(){
     $(document).on('mousedown',false)
+    $('.main-title').addClass('active')
     //nav点击下拉效果
     $('.nav-bar button').on('click',function(){
         $('.nav-bar').toggleClass('active')
@@ -21,7 +22,6 @@ $(function(){
     var link=$('.nav ul li')
     $(window).on('resize',function(){
         $(window).scroll();
-        console.log($(window).width())
     })
 
     $(window).on('scroll',function(){
@@ -31,10 +31,13 @@ $(function(){
         }
         var stop=$(window).scrollTop();
         $(arr).each(function(i,v){
-            if(stop>=v-155){
+            if(stop>=v-255){
              link.find('a').css({background:""})
              link.eq(i).find('a').css({ background: 'rgb(57, 208, 211)'})
              floor.eq(i).addClass('active')
+            }
+            else if(stop<v+50){
+                floor.eq(i).removeClass('active')
             }
 
         });
@@ -92,15 +95,13 @@ $(function(){
     }
     num(0,342);
     num(1,330);
-    num(2,324);
-    num(3,324);
-    num(4,324);
-    num(5,324);
-    num(6,288);
+    num(2,344);
+    num(3,334);
+    num(4,354);
+    num(5,344);
+    num(6,330);
     num(7,324);
-
     // 泡泡
-
    $(window).on('resize',function(){
         (function() {
             var   width, height,largeHeader, canvas, ctx, circles, target, animateHeader = true;
@@ -137,7 +138,7 @@ $(function(){
             function resize() {
                 width = window.innerWidth;
                 height = window.innerHeight;
-                largeHeader.style.height = height+'px';
+                // largeHeader.style.height = height+'px';
                 canvas.width = width;
                 canvas.height = height;
             }
@@ -185,5 +186,35 @@ $(function(){
 
         })();
    })
-   $(window).resize()
+   $(window).resize();
+
+
+    var col=$('.works .row .col');
+    col.addClass('active')
+    $('.links .all').addClass('active')
+    $('.links .all').on('click',function(){
+        $('.links li').removeClass('active');
+        $(this).addClass('active')
+        col.addClass('active');
+    });
+  $('.links .game').on('click',function(){
+      $('.links li').removeClass('active');
+      $(this).addClass('active')
+      $('.works').removeClass('active')
+      col.removeClass('active')
+      $('.works .row .game').addClass('active');
+      $('.works').addClass('active')
+  });
+    $('.links .yinyong').on('click',function(){
+        $('.links li').removeClass('active');
+        $(this).addClass('active')
+        $('.works').removeClass('active')
+        col.removeClass('active')
+        $('.works .row .yinyong').addClass('active');
+        $('.works').addClass('active')
+    });
+
+    $('.form').on('click','input',function(){
+        $(this).focus()
+    })
 })

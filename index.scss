@@ -100,11 +100,21 @@ a{
         margin-bottom: 15px;
         font-weight: 400;
         font-family: 'Rouge Script', cursive;
-        line-height: 90px;
+        line-height: 100px;
         color: #fff;
         letter-spacing: 1px;
         word-spacing: 6px;
-        text-shadow: -2px -2px #000;
+        text-align: center;
+        //text-shadow: -2px -2px #000;
+        text-shadow: 0 1px hsl(0,0%,85%),
+        0 2px hsl(0,0%,80%),
+        0 3px hsl(0,0%,75%),
+        0 4px hsl(0,0%,70%),
+        0 5px hsl(0,0%,65%),
+        0 5px 10px black;
+        opacity: 0;
+        transition:all 0.8s ease 0.5s;
+        transform: translate3d(0,-100px,0);
       }
       p{
         font-size: 27px;
@@ -115,10 +125,22 @@ a{
         font-weight: 300;
         line-height: 56px;
         word-spacing: 2px;
-        text-shadow: 2px 2px #1C2725;
         letter-spacing: 2px;
         text-transform: capitalize;
         text-align: center;
+        text-shadow: 0 1px hsl(0,0%,85%),
+        0 2px hsl(0,0%,80%),
+        0 3px hsl(0,0%,75%),
+        0 3px 10px black;
+        opacity: 0;
+        transition:all 0.8s ease;
+        transform: translate3d(0,-100px,0);
+      }
+      &.active{
+         h1,p{
+           opacity: 1;
+           transform: translate3d(0,0,0);
+         }
       }
     }
     @include ons{
@@ -152,15 +174,15 @@ a{
     padding:0 15px;
     text-align: center;
     font-family:'Open Sans', sans-serif;
-    height:auto;
+    height:52px;
     width:100%;
     margin:0 auto;
+    box-sizing: border-box;
     .nav-bar{
       display: none;
     }
     ul {
       text-align: center;
-      //width:560px;
       margin:0 auto;
       display: inline-block;
 
@@ -181,21 +203,21 @@ a{
           -webkit-transition: all 0.2s ease-in-out;
           padding: 16px 15px;
           &:hover{
-            //color: #fff;
             background-color: rgba(0, 255, 255, 0.58);
           }
         }
-      }
-      &>li:nth-child(1){
-        //margin: 0 0 0 23px;
       }
     }
   }
 }
 @include ons{
+  .header_wrapper .nav{
+    height:auto;
+  }
   .header_wrapper .nav .nav-bar{
     width:100%;
     display: block;
+    line-height: 0;
     &.active{
       border-bottom:1px solid #fff;
     }
@@ -208,7 +230,6 @@ a{
       margin-bottom: 8px;
       background-color: transparent;
       background-image: none;
-      border: 1px solid transparent;
       border-radius: 4px;
       .icon-bar{
         display: block;
@@ -239,7 +260,6 @@ a{
 }
 //header结束
 .aboutUs{
-  //background: #fff;
   height:750px;
   background-color: rgb(224, 247, 246);
   .about-us{
@@ -312,7 +332,9 @@ a{
             width: 80%;
             text-align: left;
             font-size: 14px;
-
+            a{
+              color:#fff;
+            }
           }
         }
         &:hover{
@@ -431,6 +453,7 @@ a{
       text-align: center;
       padding-top:60px;
       text-transform: uppercase;
+      transition:all 0.8s ease;
       opacity: 0;
       transform: translate3d(0,50px,0);
     }
@@ -441,18 +464,17 @@ a{
       font-weight: 400;
       text-align: center;
       margin: 0 0 60px 0;
+      transition:all 0.8s ease 0.3s;
       opacity: 0;
       transform: translate3d(0,50px,0);
     }
   }
   &.active .about-us{
     h2{
-      transition:all 0.8s ease;
       opacity: 1;
       transform: translate3d(0,0,0);
     }
     h6{
-      transition:all 0.8s ease;
       opacity: 1;
       transform: translate3d(0,0,0);
     }
@@ -554,12 +576,12 @@ a{
   }
   &.active .contain{
     h2{
-      transition:all 0.8s ease;
+      transition:all 0.8s ease ;
       opacity: 1;
       transform: translate3d(0,0,0);
     }
     h6{
-      transition:all 0.8s ease;
+      transition:all 0.8s ease 0.3s;
       opacity: 1;
       transform: translate3d(0,0,0);
     }
@@ -603,15 +625,46 @@ a{
       opacity: 0;
       transform: translate3d(0,50px,0);
     }
+    .links{
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+      margin-bottom: 30px;
+      li{
+        display: inline-block;
+        margin: 5px 5px;
+        padding: 16px 18px;
+        font-size: 14px;
+        line-height: 15px;
+        color: #15596e;
+        border: solid 1px #15596e;
+        text-transform: uppercase;
+        transition:all 0.2s ease;
+        &.active{
+          border: solid 1px #15596e;
+          color: #fff;
+          background:rgb(57, 208, 211);
+        }
+      }
+    }
     .row{
       width:100%;
       height:auto;
       transition: transform 0.8s ease;
       .col{
-        height:240px;
-        padding:10px 10px;
+        height:0;
+        //padding:10px 10px;
+        overflow: hidden;
+        &.active{
+          display: block;
+          height:240px;
+          padding:10px;
+        }
         @include ons{
-          padding:10px 0;
+          .active{
+            padding:10px 0;
+          }
         }
         .kapian{
           width:100%;
@@ -710,6 +763,18 @@ a{
         .wait{
           background-image: url("images/waiting.jpg");
         }
+        .lianxiren{
+          background-image: url("images/tongxunlu.jpg");
+        }
+        .xiangce{
+          background-image: url("images/xiangce.jpg");
+        }
+        .todo{
+          background-image: url("images/todo.jpg");
+        }
+        .icloud{
+          background-image: url("images/icloud.jpg");
+        }
       }
     }
     @include onm{
@@ -735,19 +800,19 @@ a{
       transform: translate3d(0,0,0);
     }
     h6{
-      transition:all 0.8s ease;
+      transition:all 0.8s ease 0.3s;
       opacity: 1;
       transform: translate3d(0,0,0);
     }
   }
 }
-.n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8,.n9{
+.n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8,.n9,.n10,.n11,.n12{
   transform: translate3d(500px,500px,0) scale(1.5,1.5);
   opacity: 0;
 }
 
 .works.active {
-  @for $i from 1 through 9 {
+  @for $i from 1 through 12 {
     .n#{$i} {
       transition: transform $i*0.2s ease $i*0.1s, opacity $i*0.2s ease $i*0.1s;
       transform: translate3d(0, 0, 0) scale(1,1);
@@ -759,10 +824,7 @@ a{
 .footer {
   width: 100%;
   padding: 60px 0 0 0;
-  //background: #343434;
   background-color: rgba(33, 103, 88, 0.9);
-  //background: #55b6a8;
-  //background-image: url("images/contact-bg.jpg");
   .contain {
     width: 1170px;
     padding-right: 15px;
@@ -897,24 +959,23 @@ a{
     }
   }
   &.active .contain {
-    .row > .col, h2, h6 {
-      transition: transform 0.8s ease, opacity 0.8s ease;
+    .row > .col{
+      transition:all 0.8s ease;
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
+      h2{
+        transition:all 0.8s ease ;
+        opacity: 1;
+        transform: translate3d(0,0,0);
+      }
+      h6{
+        transition:all 0.8s ease 0.3s;
+        opacity: 1;
+        transform: translate3d(0,0,0);
+      }
 
   }
-  &.active .contain{
-    h2{
-      transition:all 0.8s ease;
-      opacity: 1;
-      transform: translate3d(0,0,0);
-    }
-    h6{
-      transition:all 0.8s ease;
-      opacity: 1;
-      transform: translate3d(0,0,0);
-    }
-  }
+
 }
 
